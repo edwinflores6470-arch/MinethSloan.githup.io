@@ -72,7 +72,17 @@
             <a >
                 <img src="img/separador.png" alt="Logo del torneo">
             </a>
-        </div>
+        </div><script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const botonMenu = document.querySelector('.menu-movil');
+        const navegacion = document.querySelector('.navegacion-principal');
+
+        botonMenu.addEventListener('click', () => {
+            // Esto alterna la clase 'activo' cada vez que presionas el botón
+            navegacion.classList.toggle('activo');
+        });
+    });
+</script>
 
         <div class="menu-movil">
             <span></span>
