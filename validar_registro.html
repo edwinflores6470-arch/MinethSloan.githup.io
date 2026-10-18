@@ -1,0 +1,75 @@
+<?php
+	if(isset($_POST['submit']))
+	{
+		$nombre=$_POST['nombres'];
+		$apellidos=$_POST['apellidos'];
+		$celular=$_POST['celular'];
+		$email=$_POST['email'];
+		$regalo=$_POST['regalo'];
+		$dia= date('Y-m-d H:i:s');		$total_pedido=$_POST['total_pedido'];
+		
+		include_once'includes/funciones/funciones.php';
+		
+		
+		//JSON DE PRODUCTO PASES PEDIDOS
+		$boletos= $_POST['pase'];
+		$poleras= $_POST['pedido_polera'];
+		$chamarras= $_POST['pedido_chamarra'];
+		$gorras= $_POST['pedido_gorra']; 
+		
+		 $pedido = productos_json($boletos, $poleras, $chamarras,$gorras);
+			
+		
+		//JSON DE eventoss--
+		$eventos=$_POST['registro'];
+		$registro= eventos_json($eventos);
+		
+		
+		//guardado en base de datos
+		
+		try
+{ 
+	 ///abrirr conexion MYSQL
+	 require_once('includes/funciones/bd_conexion.php');
+	 //definir transaccion Sql
+	$stsm = $conn->prepare("INSERT INTO participante
+	(nombres_participante,apellidos_participante,celular_participante,email_participante,fecha_registro,pases_articulo,eventos_registrado,id_regalo,total_pagado) VALUES (?,?,?,?,?,?,?,?,?)");
+    $stsm->bind_param("sssssssis", $nombres,$apellidos,$celular,
+	$email,$dia,$pedido,$registro,
+	$regalo,$total_pedido);
+			$stsm->execute();
+			$stsm->close();
+			$conn->close();
+			header('Location:validar_registro.php?exitoso=1');
+	 //ejecutar transacccion
+	 
+     }
+	 catch(\Exception $e)
+	 {
+		 echo $e->getMessage();
+		 }
+	}
+	?>
+     
+     
+     
+			
+
+
+
+
+<?php include_once'includes/templates/header.php';?>
+<section class="seccion contenedor-barra">
+     <h2>--Resumen Registro--</h2>
+     <?php
+	if(isset($_GET['exitoso'])){
+		if($_GET['exitoso']=="1"){
+			echo"<p>Registro exitoso</p>";
+		}
+	}
+	?>
+     
+
+</section>
+
+ <?php include_once'includes/templates/fooder.php';?>

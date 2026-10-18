@@ -1,0 +1,219 @@
+
+
+<?php include_once 'includes/templates/header.php'; ?>
+
+<section class="seccion contenedor-barra ubicacion-seccion">
+
+    <div class="ubicacion-encabezado">
+        <span class="ubicacion-icono">
+            <i class="fas fa-map-marker-alt"></i>
+        </span>
+
+        <h2>NUESTRA UBICACIÓN</h2>
+
+        <p>
+            Visítanos en Galería San Martín, caseta J 4,
+            Bermejo, Bolivia.
+        </p>
+    </div>
+
+    <div class="tarjeta-ubicacion">
+
+        <div class="mapa-contenedor">
+            <iframe
+                src="https://maps.google.com/maps?q=-22.73062383734072,-64.34971818410949&z=17&output=embed"
+                title="Ubicación de Galería San Martín, caseta J 4"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="detalles-ubicacion">
+
+            <h3>
+                <i class="fas fa-store"></i>
+                GALERÍA SAN MARTÍN
+            </h3>
+
+            <p>
+                <i class="fas fa-map-pin"></i>
+                <strong>Dirección:</strong> Caseta J 4
+            </p>
+
+            <p>
+                <i class="fas fa-city"></i>
+                <strong>Ciudad:</strong> Bermejo, Bolivia
+            </p>
+
+            <div class="botones-ubicacion">
+
+                <a class="boton-ubicacion"
+                   href="https://www.google.com/maps/search/?api=1&query=-22.73062383734072%2C-64.34971818410949"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Abrir Google Maps
+                </a>
+
+                <a class="boton-como-llegar"
+                   href="https://www.google.com/maps/dir/?api=1&destination=-22.73062383734072%2C-64.34971818410949"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fas fa-route"></i>
+                    Cómo llegar
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+.ubicacion-seccion {
+    padding-top: 35px;
+    padding-bottom: 45px;
+}
+
+.ubicacion-encabezado {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.ubicacion-encabezado h2 {
+    color: #176b45;
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.ubicacion-encabezado p {
+    color: #666;
+    font-size: 16px;
+}
+
+.ubicacion-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    background: #176b45;
+    color: white;
+    border-radius: 50%;
+    font-size: 27px;
+}
+
+.tarjeta-ubicacion {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.mapa-contenedor {
+    width: 100%;
+    height: 420px;
+}
+
+.mapa-contenedor iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.detalles-ubicacion {
+    padding: 25px;
+}
+
+.detalles-ubicacion h3 {
+    color: #176b45;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.detalles-ubicacion p {
+    color: #444;
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.detalles-ubicacion p i {
+    color: #176b45;
+    width: 24px;
+}
+
+.botones-ubicacion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.boton-ubicacion,
+.boton-como-llegar {
+    display: inline-block;
+    padding: 13px 18px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.boton-ubicacion {
+    color: #fff;
+    background: #176b45;
+}
+
+.boton-como-llegar {
+    color: #176b45;
+    background: #e7f3eb;
+    border: 1px solid #176b45;
+}
+
+.boton-ubicacion:hover,
+.boton-como-llegar:hover {
+    transform: translateY(-2px);
+}
+
+.boton-ubicacion:hover {
+    background: #104b30;
+    color: #fff;
+}
+
+.boton-como-llegar:hover {
+    background: #d1e9d9;
+}
+
+@media (max-width: 600px) {
+    .ubicacion-encabezado h2 {
+        font-size: 24px;
+    }
+
+    .mapa-contenedor {
+        height: 300px;
+    }
+
+    .detalles-ubicacion {
+        padding: 18px;
+    }
+
+    .botones-ubicacion {
+        flex-direction: column;
+    }
+
+    .boton-ubicacion,
+    .boton-como-llegar {
+        text-align: center;
+    }
+}
+</style>
+
+<?php include_once 'includes/templates/footer.php'; ?>
